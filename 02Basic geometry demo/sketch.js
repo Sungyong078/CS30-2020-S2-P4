@@ -12,17 +12,18 @@ function draw() {
   character(x,y);
 }
 
-function keyBoardInput(){
-  if (keyIsPressed === true){
-    if (keyCode === LEFT_ARROW){
+
+function keyBoardInput() {
+  if (keyIsPressed === true) {
+    if (keyCode === LEFT_ARROW) {
       x -= 10;
     }
-    else if (keyCode === RIGHT_ARROW){
+    else if (keyCode === RIGHT_ARROW) {
       x += 10;
     }
   }
-  
 }
+
 
 
 function character(x, y){
