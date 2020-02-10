@@ -20,6 +20,7 @@ function draw() {
   ground(x,y);
   sun(x,y);
   house(x,y);
+  move(character);
 }
 
 
@@ -40,6 +41,7 @@ function character(x,y){
 }
 
 
+
 function ground(x,y){
   fill(50,255,50);
   rect(x-500,y+323,1000,300);
@@ -55,5 +57,26 @@ function house(x,y){
   rect(x+200,y+223,100,100);
   fill(200,50,200);
   triangle(x+170,y+223,x+330,y+223,x+250,y+150);
-  rect()
+  fill(0);
+  rect(x+260,y+268,30,55); //door
+  fill(70,150,123);
+  rect(x+210,y+250,25,25); //window
+  line(x+223,y+250,x+223,y+275);
+  line(x+210,y+263,x+235,y+263);
+}
+
+
+function move(character){
+  if (keyIsDown(LEFT_ARROW)){
+    x -= 5;
+  }
+  if (keyIsDown(RIGHT_ARROW)){
+    x += 5;
+  }
+  if (keyIsDown(UP_ARROW)){
+    y -= 5;
+  }
+  if (keyIsDown(DOWN_ARROW)){
+    y += 5;
+  }
 }
