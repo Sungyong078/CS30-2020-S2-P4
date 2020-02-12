@@ -1,15 +1,21 @@
-// Project Title
-// Your Name
-// Date
-//
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// Rollovers
+// Sungyong Park
+// Feb 12 2020
 
+let x = width;
+let y = height;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
 }
 
 function draw() {
-  background(220);
+  background(255);
+  squareOne(x,y);
+}
+
+function squareOne(){
+  fill(0);
+  rect(x,y,x,y);
 }
