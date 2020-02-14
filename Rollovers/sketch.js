@@ -19,24 +19,34 @@ function setup() {
 
 function updateCurrentSide(){
 
-  if(mouseX < width/2){
+  if(mouseX < width/2 && mouseY < height/2){
     //mouse is on the LEFT
-    onLeft = true;
-    onRight = false;
-  }
-  else{
-    //mouse is on the right
-    onRight = true;
     onLeft = false;
-  }
-
-  if(mouseX < width/2){
-    downLeft = true;
+    onRight = true;
+    downLeft = false;
     downRight = false;
   }
   else{
-    downRight = true;
+    //mouse is on the right
+    onRight = false;
+    onLeft = false;
     downLeft = false;
+    downRight = true;
+  }
+
+  if(mouseX < width/2 && mouseY > height/2){
+    downLeft = false;
+    downRight = true;
+    onLeft = false;
+    onRight = false;
+   
+  }
+  else{
+    downRight = false;
+    downLeft = true;
+    onLeft = false;
+    onRight = false;
+    
   }
 
 }
@@ -72,7 +82,15 @@ function renderRectangles(){
   }
   rect(width/2,height/2,width/2,height/2);
 
-  if()
+  if(downRight){
+    fill(0, downRightFade);
+    downRightFade += FADE_SPEED;
+  }
+  else{
+    fill(255);
+    downRightFade = 0;
+  }
+  rect(0,height/2,width/2,height/2);
 
 }
 
@@ -81,7 +99,7 @@ function draw() {
   updateCurrentSide();
 
   renderRectangles();
-  if (mouseX > width*0.25 && mouseX < width*0.75 && mouseY > height*.25 && mouseY < height*.75){
+  if (mouseX > width*0.25 && mouseX < width*0.75 && mouseY > height*0.25 && mouseY < height*0.75){
     fill(80,160,240,120);
   }
   else{
