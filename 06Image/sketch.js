@@ -56,7 +56,6 @@ function draw() {
   image(pinImages[pinFrame], width/2, height/2);
 
   let speedChange = map(mouseX, 0, width,1,4);
-
   if (frameCount % int(speedChange) === 0){
     pinFrame ++;
     if (pinFrame > 8) pinFrame = 0;
