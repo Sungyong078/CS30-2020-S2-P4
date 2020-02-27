@@ -22,9 +22,10 @@ function loopDraw(){
 
 function loopDrawTwo(){
   ellipseMode(CENTER);
+  
   for(let x = 0; x < width; x += 30){
     for(let y = 0; y < height; y += 30){
-      fill(random(255),random(255),random(255));
+      fill(random(255),random(255),random(255),170);
       ellipse(x,y,20,20);
     }
   }
