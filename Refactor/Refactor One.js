@@ -1,19 +1,31 @@
-let a, b, c, d;
+let a, b, xSpeed, ySpeed;
+
+//setup values for a,b,c,d and create window
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  a = 200; b = 300; c = random(3, 8); d = random(3, 8);
+  a = 200;
+  b = 300;
+  xSpeed = random(3,8);
+  ySpeed = random(3,8);
 }
-function draw() {
+
+//draw background, rectangle and set speed of rectangle
+function draw() { 
   m();
   background(80, 80, 80);
   rect(a, b, 250, 75);
 }
+
+//change speed of x,y depends on a and b
 function m() {
-  a += c; b += d;
-  if (b >= height - 75 || b <= 0) { 
-    d = d * -1; 
+  a += xSpeed;
+  b += ySpeed;
+  if (b >= height - 75 || b <= 0) {
+    ySpeed = ySpeed * -1;
   }
-  if (a >= width - 250 || a <= 0) {  
-    c = c * -1; 
+  else if (a >= width - 250 || a <= 0) {
+    xSpeed = xSpeed * -1;
   }
+
+
 }

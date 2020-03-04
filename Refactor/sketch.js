@@ -1,19 +1,34 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
+
+
+
+
 function draw() {
-  background(255); stroke(0); line(240, 0, 240, 270); line(0, 135, 480, 135);
-  noStroke(); fill(0);
-  if (mouseX < 240 && mouseY < 135) {
-    rect(0, 0, 240, 135);
+  //setup background
+  background(255);
+  
+  //draw lines that divide 4 sections 
+  stroke(0); 
+  line(width/2, 0, width/2, height); 
+  line(0, height/2, width, height/2);
+  noStroke(); 
+  fill(0);
+  
+  if (mouseX < width/2 && mouseY < height/2) { //quad 1
+    rect(0, 0, width/2, height/2);
   }
-  else if (mouseX > 240 && mouseY < 135) {
-    rect(240, 0, 240, 135);
+  
+  else if (mouseX > width/2 && mouseY < height/2) { //quad 2
+    rect(width/2, 0, width/2, height/2);
   }
-  else if (mouseX < 240 && mouseY > 135) {
-    rect(0, 135, 240, 135);
+  
+  else if (mouseX < width/2 && mouseY > height/2) { //quad 3
+    rect(0, height/2, width/2, height/2);
   }
-  else if (mouseX > 240 && mouseY > 135) {
-    rect(240, 135, 240, 135);
+  
+  else if (mouseX > width/2 && mouseY > height/2) { //quad 4
+    rect(width/2, height/2, width/2, height/2);
   }
 }
