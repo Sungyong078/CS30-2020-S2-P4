@@ -4,24 +4,26 @@
 
 
 let rectHeight;
+let rectTime = 5;
+let rectSpeed = 0.04;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(255);
   rectMode(CORNERS);
-  generateTerrain();
 }
 
-function draw() {
-  
-  
+function draw() { 
+  generateTerrain();
+
 }
 
 
 function generateTerrain(){
-  let rectHeight = random(windowHeight);
-  for(let i = 0; i < windowWidth; i = i+20){
-    rect(i,height,i,rectHeight);
+  let rectHeight = noise(height);
+  for(let i = 0; i < width; i++){
     fill(0);
+    rect(i,height,15,rectHeight);
+    
   }
 }
