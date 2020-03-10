@@ -3,27 +3,43 @@
 // March 6, 2020
 
 
-let rectHeight;
-let rectTime = 5;
-let rectSpeed = 0.04;
+let xOff = 0;
+let yOff = 0;
+let start = 0;
+let inc = 0.03;
+const RECTWIDTH = 5;
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(255);
   rectMode(CORNERS);
 }
 
-function draw() { 
+function draw() {
+  
+  background(0);
+  stroke(255);
+  
   generateTerrain();
-
 }
 
 
-function generateTerrain(){
-  let rectHeight = noise(height);
-  for(let i = 0; i < width; i++){
-    fill(0);
-    rect(i,height,15,rectHeight);
+function generateTerrain() {
+  fill(255);
+  let xOff = start;
+  let yOff = start;
+  for (let x = 0; x < width; x++) {
+    let y = map(noise(xOff),0,1,0,height);
+    rect(x,height,x+RECTWIDTH,y);
+    yOff += 0.009;
+    xOff += 0.009;
     
   }
+  start += inc;
+}
+
+
+
+function drawFlag(){
+  
 }
