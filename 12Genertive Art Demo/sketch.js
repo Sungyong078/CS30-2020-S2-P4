@@ -1,35 +1,47 @@
 // Diagonal Line Art
+const RECT_WIDTH = 10;
+const RECT_HEIGHT = 50;
+let colors = []; //fill with HEX codes as strings
 
 
 
-let gridSpacing = 20;
-const PADDING = 60;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  rectMode(CENTER);
+
 }
 
 
 
 function draw() {
   background(220);
-  border();
-  drawGrid();
+  randomSeed(0);
+  //border();
+  drawRowRGB(height*0.2);
+  drawRowHSB(height*0.5);
 }
 
 
-function drawGrid(){
-  for(let x = gridSpacing/2 + PADDING; x < width - PADDING; x += gridSpacing){
-    for(let y = gridSpacing/2 + PADDING; y < height - PADDING; y += gridSpacing){
-      rect(x,y,gridSpacing,gridSpacing);
-    }
+function drawRowRGB(yPos){
+  colorMode(RGB, 255);
+  for(let x = 0; x < width; x += RECT_WIDTH){
+    fill();
+    rect(x,yPos, RECT_WIDTH, RECT_HEIGHT);
+  }
+}
+
+
+function drawRowHSB(yPos){
+  colorMode(HSB, 360);
+  for(let x = 0; x < width; x += RECT_WIDTH){
+    fill(x/3 % 360, map(mouseY,0,height,0,300), 300);
+    rect(x,yPos, RECT_WIDTH, RECT_HEIGHT);
   }
 }
 
 
 function border(){
   strokeWeight(15);
-  rect(width/2,height/2,width,height);
+  rect(0,0,width,height);
   strokeWeight(2);
 }
