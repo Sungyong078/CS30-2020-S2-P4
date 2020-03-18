@@ -1,3 +1,6 @@
+let targetW = 200;
+let targetH = 200;
+
 //Black and White Target
 function setup() {
   createCanvas(400, 400);
@@ -6,14 +9,18 @@ function setup() {
 
 function draw() {
   background(240);
-  ellipse(200, 200, 400, 400);
-  ellipse(200, 200, 360, 360);
-  ellipse(200, 200, 320, 320);
-  ellipse(200, 200, 280, 280);
-  ellipse(200, 200, 240, 240);
-  ellipse(200, 200, 200, 200);
-  ellipse(200, 200, 160, 160);
-  ellipse(200, 200, 120, 120);
-  ellipse(200, 200, 80, 80);
-  ellipse(200, 200, 40, 40);
+  target();
+}
+
+function target(){ //create a target
+  ellipse(targetW, targetH, 400, 400);
+  ellipse(targetW, targetH, 360, 360);
+  ellipse(targetW, targetH, 320, 320);
+  ellipse(targetW, targetH, 280, 280);
+  ellipse(targetW, targetH, 240, 240);
+  ellipse(targetW, targetH, 200, 200);
+  ellipse(targetW, targetH, 160, 160);
+  ellipse(targetW, targetH, 120, 120);
+  ellipse(targetW, targetH, 80, 80);
+  ellipse(targetW, targetH, 40, 40);
 }
