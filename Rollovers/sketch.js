@@ -75,7 +75,10 @@ function renderRectangles(){
 function draw() {
   background(225);
   updateCurrentSide();
-  line(width/2,0,width/2,height);
+  stroke(0); 
+  line(width/2, 0, width/2, height); 
+  line(0, height/2, width, height/2);
+  noStroke(); 
   renderRectangles();
   if (mouseX > width*0.25 && mouseX < width*0.75 && mouseY > height*0.25 && mouseY < height*0.75){
     fill(80,160,240,120);
