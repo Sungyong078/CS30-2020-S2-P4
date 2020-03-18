@@ -2,11 +2,10 @@
 // Sungyong Park
 // 2020 Feb 6
 //
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+
 
 let x, y;
-let movecharacter = x;
+
 
 function character() {
   
@@ -45,12 +44,12 @@ function character() {
 
 function ground(x, y) {
   fill(50, 255, 50);
-  rect(x - 500, y + 323, 1000, 300);
+  rect(x - windowWidth, y + 323, x + windowWidth, 300);
 }
 
 function sun(x, y) {
   fill(255, 50, 0);
-  ellipse(x - 400, y - 350, 100, 100);
+  ellipse(x - 400, y - 300, 150, 150);
 }
 
 function house(x, y) {
@@ -68,6 +67,7 @@ function house(x, y) {
 
 
 function draw() {
+  movecharacter = x;
   background(100, 100, 255);
   character(x,y);
   ground(x, y);
@@ -83,7 +83,8 @@ function draw() {
   }
   
   textSize(30);
-  text
+  fill(0);
+  text('Sungyong', x + 630, y + 380)
 
 }
 
