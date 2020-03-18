@@ -21,7 +21,10 @@ function draw() {
   line(0, height/2, width, height/2);
   noStroke(); 
   fill(0);
-  
+  fourQuadrant();
+}
+
+function fourQuadrant(){
   if (mouseX < width/2 && mouseY < height/2) { //quad 1
     rect(0, 0, width/2, height/2);
   }
@@ -38,4 +41,3 @@ function draw() {
     rect(width/2, height/2, width/2, height/2);
   }
 }
-

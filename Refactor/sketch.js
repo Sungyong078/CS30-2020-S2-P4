@@ -1,34 +1,31 @@
+let a, b, xSpeed, ySpeed;
+
+//setup values for a,b,c,d and create window
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  a = 200;
+  b = 300;
+  xSpeed = random(3,8);
+  ySpeed = random(3,8);
 }
 
+//draw background, rectangle and set speed of rectangle
+function draw() { 
+  flyingSquare();
+  background(80, 80, 80);
+  rect(a, b, 250, 75);
+}
+
+//change speed of x,y depends on a and b
+function flyingSquare() {
+  a += xSpeed;
+  b += ySpeed;
+  if (b >= height - 75 || b <= 0) {
+    ySpeed = ySpeed * -1;
+  }
+  else if (a >= width - 250 || a <= 0) {
+    xSpeed = xSpeed * -1;
+  }
 
 
-
-function draw() {
-  //setup background
-  background(255);
-  
-  //draw lines that divide 4 sections 
-  stroke(0); 
-  line(width/2, 0, width/2, height); 
-  line(0, height/2, width, height/2);
-  noStroke(); 
-  fill(0);
-  
-  if (mouseX < width/2 && mouseY < height/2) { //quad 1
-    rect(0, 0, width/2, height/2);
-  }
-  
-  else if (mouseX > width/2 && mouseY < height/2) { //quad 2
-    rect(width/2, 0, width/2, height/2);
-  }
-  
-  else if (mouseX < width/2 && mouseY > height/2) { //quad 3
-    rect(0, height/2, width/2, height/2);
-  }
-  
-  else if (mouseX > width/2 && mouseY > height/2) { //quad 4
-    rect(width/2, height/2, width/2, height/2);
-  }
 }
