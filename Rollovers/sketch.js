@@ -1,6 +1,7 @@
 // Rollovers
 // Sungyong Park
 // Feb 12 2020
+//draw 4 different square and color it if the mouse is on that quadrant
 
 
 let leftFade = 0;
@@ -36,17 +37,45 @@ function updateCurrentSide(){
 
 
 function renderRectangles(){
-  if(mouseX < width/2 && mouseY < height/2){
-    
+  if(mouseX < width/2 && mouseY < height/2){ //fade at downleft square
+    fill(0,downLeftFade);
+    downLeftFade += FADE_SPEED;
   }
-  
+  else{
+    fill(255);
+    downLeftFade = 0;
+  }
+  if(mouseX > width/2 && mouseY < height/2){ //fade at downright square
+    fill(0,downRightFade);
+    downRightFade += FADE_SPEED;
+  }
+  else{
+    fill(255);
+    downRightFade = 0;
+  }
+  if(mouseX < width/2 && mouseY > height/2){ //fade at right square
+    fill(0,rightFade);
+    rightFade += FADE_SPEED;
+  }
+  else{
+    fill(255);
+    rightFade = 0;
+  }
+  if(mouseX > width/2 && mouseY > height/2){ //fade at left square
+    fill(0,leftFade);
+    leftFade += FADE_SPEED;
+  }
+  else{
+    fill(255);
+    leftFade = 0;
+  }
 
 }
 
 function draw() {
-  background(220);
+  background(225);
   updateCurrentSide();
-
+  line(width/2,0,width/2,height);
   renderRectangles();
   if (mouseX > width*0.25 && mouseX < width*0.75 && mouseY > height*0.25 && mouseY < height*0.75){
     fill(80,160,240,120);
@@ -58,30 +87,3 @@ function draw() {
 }
 
 
-//function draw() {
-  //setup background
-  //background(255);
-  
-  //draw lines that divide 4 sections 
-  //stroke(0); 
-  //line(width/2, 0, width/2, height); 
-  //line(0, height/2, width, height/2);
-  //noStroke(); 
-  //fill(0);
-  
-  //if (mouseX < width/2 && mouseY < height/2) { //quad 1
-    //rect(0, 0, width/2, height/2);
-  //}
-  
-  //else if (mouseX > width/2 && mouseY < height/2) { //quad 2
-    //rect(width/2, 0, width/2, height/2);
-  //}
-  
-  //else if (mouseX < width/2 && mouseY > height/2) { //quad 3
-    //rect(0, height/2, width/2, height/2);
-  //}
-  
-  //else if (mouseX > width/2 && mouseY > height/2) { //quad 4
-    //rect(width/2, height/2, width/2, height/2);
-  //}
-//}
